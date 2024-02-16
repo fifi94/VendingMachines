@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VendingMachine.Ingredients;
 
-namespace VendingMachine
+namespace VendingMachine.Recipies
 {
 
     // Generic class representing a recipe
-   public class Recipe<TIngredient> where TIngredient : Ingredient
+    public abstract class Recipe<TIngredient> where TIngredient : Ingredient
     {
         public string Name { get; }
         private readonly List<TIngredient> ingredients;
@@ -27,10 +28,11 @@ namespace VendingMachine
         }
 
         // Method to get ingredients for the recipe
-        public List<TIngredient> GetIngredients()
+        public  virtual List<TIngredient> GetIngredients()
         {
             return new List<TIngredient>(ingredients);
         }
+     
     }
 
 }
